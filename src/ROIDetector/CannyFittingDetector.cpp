@@ -20,10 +20,9 @@ namespace aram
 		// Grayscale
 		cv::cvtColor(currentFrame, grayscale, CV_BGR2GRAY);
 		// Gaussian blur
-		//cv::GaussianBlur(grayscale, blur, m_blurSize, m_sigmaX, m_sigmaY);
-		cv::adaptiveThreshold(grayscale, canny, 255, CV_ADAPTIVE_THRESH_GAUSSIAN_C, CV_THRESH_BINARY_INV, 11, 5);
+		cv::GaussianBlur(grayscale, blur, m_blurSize, m_sigmaX, m_sigmaY);
 		// Canny
-		//cv::Canny(blur, canny, m_lowThreshold, m_highThreshold, m_sobelSize);
+		cv::Canny(blur, canny, m_lowThreshold, m_highThreshold, m_sobelSize);
 
 #ifdef EXPORT_FRAME
 		cv::Mat saveCanny = 255*canny;
